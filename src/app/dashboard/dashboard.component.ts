@@ -1,6 +1,6 @@
 import {
   Component,
-  ComponentFactoryResolver,
+  ComponentFactoryResolver, ContentChild,
   OnInit,
   ViewChild,
   ViewContainerRef
@@ -47,7 +47,6 @@ export class DashboardComponent implements OnInit {
   getWidgetsRequest() {
     this.loading = true;
     this._dataService.getWidgets().subscribe((widgets) => {
-      console.log(widgets);
       this.widgets = widgets;
       this.loading = false;
 
