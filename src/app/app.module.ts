@@ -15,6 +15,8 @@ import {Child3Component} from './dashboard/child3/child3.component';
 import {Child4Component} from './dashboard/child4/child4.component';
 import {Child5Component} from './dashboard/child5/child5.component';
 import { HostDirective } from './common/directives/host.directive';
+import { TimeAgoPipe } from './common/pipes/time-ago.pipe';
+import { TimeAgoComponent } from './time-ago/time-ago.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { HostDirective } from './common/directives/host.directive';
     Child3Component,
     Child4Component,
     Child5Component,
-    HostDirective
+    HostDirective,
+    TimeAgoPipe,
+    TimeAgoComponent
   ],
   imports: [
     BrowserModule,
