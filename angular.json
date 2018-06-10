@@ -26,7 +26,10 @@
               "src/styles.css"
             ],
             "scripts": [
-              "./node_modules/moment/min/moment.min.js"
+              "./node_modules/moment/min/moment.min.js",
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              }
             ]
           },
           "configurations": {

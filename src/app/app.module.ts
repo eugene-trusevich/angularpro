@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {Injector, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {AclDirective} from './common/directives/acl.directive';
@@ -14,9 +14,12 @@ import {Child2Component} from './dashboard/child2/child2.component';
 import {Child3Component} from './dashboard/child3/child3.component';
 import {Child4Component} from './dashboard/child4/child4.component';
 import {Child5Component} from './dashboard/child5/child5.component';
-import { HostDirective } from './common/directives/host.directive';
-import { TimeAgoPipe } from './common/pipes/time-ago.pipe';
-import { TimeAgoComponent } from './time-ago/time-ago.component';
+import {HostDirective} from './common/directives/host.directive';
+import {TimeAgoPipe} from './common/pipes/time-ago.pipe';
+import {TimeAgoComponent} from './time-ago/time-ago.component';
+import {ElementComponent} from './element/element.component';
+import {FormComponent} from './form/form.component';
+import {createCustomElement} from '@angular/elements';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { TimeAgoComponent } from './time-ago/time-ago.component';
     Child5Component,
     HostDirective,
     TimeAgoPipe,
-    TimeAgoComponent
+    TimeAgoComponent,
+    ElementComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -43,10 +48,18 @@ import { TimeAgoComponent } from './time-ago/time-ago.component';
     Child2Component,
     Child3Component,
     Child4Component,
-    Child5Component
+    Child5Component,
+    FormComponent
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
+  constructor(private injector: Injector) {
+    const formELement = createCustomElement(FormComponent, {injector});
+    customElements.define('my-form', formELement);
+  }
+
+  ngDoBootstrap() {}
 }
