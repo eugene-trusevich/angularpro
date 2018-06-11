@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-form',
+  selector: 'register-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  public submitted: boolean = false;
+  public simpleView: boolean = true;
+  public formModel: any = {};
+
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+
+  public onSubmit(): void {
+    this.submitted = true;
+    console.log(this.formModel);
+  }
 }

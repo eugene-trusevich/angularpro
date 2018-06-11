@@ -1,3 +1,40 @@
-<p>
-  form works!
-</p>
+<div>
+  <h2>Simplest form</h2>
+  <div>
+    <label>
+      <h4 style="display: inline-block">Check expanded form</h4>
+      <input type="checkbox" [checked]="!simpleView" (change)="simpleView= !simpleView">
+    </label>
+  </div>
+  <form name="registerForm" (ngSubmit)="registerForm.form.valid && onSubmit()" #registerForm="ngForm" novalidate>
+    <div>
+      <label>
+        <div>Username</div>
+        <input type="text" name="name" [(ngModel)]="formModel.name"  #name="ngModel" required>
+        <div *ngIf="!name.valid && registerForm.submitted || (!name.valid && name.dirty)">
+          Name is required
+        </div>
+      </label>
+    </div>
+    <div>
+      <label>
+        <div>password</div>
+        <input type="password" name="password" [(ngModel)]="formModel.password" #password="ngModel" required>
+        <div *ngIf="!password.valid && registerForm.submitted || (!password.valid && password.dirty)">
+          Password is required
+        </div>
+      </label>
+    </div>
+    <div *ngIf="!simpleView">
+      <label>
+        <div>Email</div>
+        <input type="email" name="email" [(ngModel)]="formModel.email" #email="ngModel" required>
+        <div *ngIf="!email.valid && registerForm.submitted || (!email.valid && email.dirty)">
+          Email is required
+        </div>
+      </label>
+    </div>
+    <button class="btn btn-primary">Register user</button>
+    <div *ngIf="submitted">User register!</div>
+  </form>
+</div>

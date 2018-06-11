@@ -20,6 +20,7 @@ import {TimeAgoComponent} from './time-ago/time-ago.component';
 import {ElementComponent} from './element/element.component';
 import {FormComponent} from './form/form.component';
 import {createCustomElement} from '@angular/elements';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import {createCustomElement} from '@angular/elements';
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
+    FormsModule
   ],
   entryComponents: [
     Child1Component,
@@ -57,8 +59,8 @@ import {createCustomElement} from '@angular/elements';
 export class AppModule {
 
   constructor(private injector: Injector) {
-    const formELement = createCustomElement(FormComponent, {injector});
-    customElements.define('my-form', formELement);
+    const formELement = createCustomElement(FormComponent, {injector: this.injector});
+    customElements.define('register-form', formELement);
   }
 
   ngDoBootstrap() {}
