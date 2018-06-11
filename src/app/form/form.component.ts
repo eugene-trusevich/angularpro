@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'register-form',
@@ -6,17 +6,24 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  public simpleView: boolean;
-  @Input()
-  set view(view: boolean) {
-    this.simpleView = view;
-  }
+
+  @Input() public simpleView: boolean;
 
   public submitted: boolean = false;
   public formModel: any = {};
 
 
-  constructor() {
+  constructor(
+    private elementRef: ElementRef
+  ) {
+    let myAttribute = this.elementRef.nativeElement.getAttribute('simpleView');
+    console.log('myAttribute', myAttribute);
+
+    if (this.simpleView == null) {
+      console.log('simpleView', this.simpleView);
+      this.simpleView = true;
+    }
+
   }
 
   ngOnInit() {
