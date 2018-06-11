@@ -1,9 +1,12 @@
 <div>
   <h2>Simplest form</h2>
   <div>
+    {{simpleView}}
+  </div>
+  <div>
     <label>
       <h4 style="display: inline-block">Check expanded form</h4>
-      <input type="checkbox" [checked]="!simpleView" (change)="simpleView= !simpleView">
+      <input type="checkbox" [checked]="!simpleView" (change)="handleChangeView()">
     </label>
   </div>
   <form name="registerForm" (ngSubmit)="registerForm.form.valid && onSubmit()" #registerForm="ngForm" novalidate>

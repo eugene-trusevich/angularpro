@@ -10,8 +10,6 @@ const concat = require('concat');
     './dist/main.js'
   ]
 
-
-
   await fs.ensureDir('elements')
 
   await concat(files, 'elements/register-form.js')

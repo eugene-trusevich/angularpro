@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'register-form',
@@ -6,9 +6,13 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  public simpleView: boolean;
+  @Input()
+  set view(view: boolean) {
+    this.simpleView = view;
+  }
 
   public submitted: boolean = false;
-  public simpleView: boolean = true;
   public formModel: any = {};
 
 
@@ -16,11 +20,15 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.simpleView);
   }
-
 
   public onSubmit(): void {
     this.submitted = true;
     console.log(this.formModel);
+  }
+
+  public handleChangeView(): void {
+    this.simpleView = !this.simpleView;
   }
 }
