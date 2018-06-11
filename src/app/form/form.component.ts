@@ -17,17 +17,11 @@ export class FormComponent implements OnInit {
     private elementRef: ElementRef
   ) {
     let myAttribute = this.elementRef.nativeElement.getAttribute('simpleView');
-    console.log('myAttribute', myAttribute);
-
-    if (this.simpleView == null) {
-      console.log('simpleView', this.simpleView);
-      this.simpleView = true;
-    }
-
+    this.simpleView = (myAttribute != null && `${myAttribute}` !== 'false');
   }
 
   ngOnInit() {
-    console.log(this.simpleView);
+
   }
 
   public onSubmit(): void {
