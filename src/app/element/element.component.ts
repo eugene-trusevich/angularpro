@@ -12,4 +12,8 @@ export class ElementComponent implements OnInit {
   ngOnInit() {
   }
 
+  callback(values){
+    console.log(values);
+  }
+
 }

@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'register-form',
@@ -8,6 +8,7 @@ import {Component, ElementRef, Input, OnInit} from '@angular/core';
 export class FormComponent implements OnInit {
 
   @Input() public simpleView: boolean;
+  @Output() public submitCallback: EventEmitter<any> = new EventEmitter();
 
   public submitted: boolean = false;
   public formModel: any = {};
@@ -26,7 +27,7 @@ export class FormComponent implements OnInit {
 
   public onSubmit(): void {
     this.submitted = true;
-    console.log(this.formModel);
+    this.submitCallback.emit(this.formModel);
   }
 
   public handleChangeView(): void {
