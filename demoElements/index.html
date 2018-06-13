@@ -8,8 +8,15 @@
   <base href="/">
 </head>
 <body>
-<register-form simpleView="true"></register-form>
+<register-form id="register-form" expanded="true"></register-form>
+<div id="submitCallback"></div>
 <script src="../angularpro-home1/elements/register-form.js"></script>
+<script>
+  const registerForm = document.getElementById('register-form')
+  registerForm.addEventListener('submitCallback', (event)=>{
+    document.getElementById('submitCallback').innerHTML = JSON.stringify(event.detail)
+  })
+</script>
 <!-- I need insert angularpro-home1 (project directory name) to that path-->
 </body>
 </html>

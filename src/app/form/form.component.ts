@@ -1,28 +1,25 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'register-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css'],
+  encapsulation: ViewEncapsulation.Native
 })
 export class FormComponent implements OnInit {
 
-  @Input() public simpleView: boolean;
+  @Input() expanded: string;
   @Output() public submitCallback: EventEmitter<any> = new EventEmitter();
 
   public submitted: boolean = false;
   public formModel: any = {};
+  public simpleView: boolean = false;
 
 
-  constructor(
-    private elementRef: ElementRef
-  ) {
-    let myAttribute = this.elementRef.nativeElement.getAttribute('simpleView');
-    this.simpleView = (myAttribute != null && `${myAttribute}` !== 'false');
-  }
+  constructor() {}
 
   ngOnInit() {
-
+    this.simpleView = (this.expanded === 'true');
   }
 
   public onSubmit(): void {
