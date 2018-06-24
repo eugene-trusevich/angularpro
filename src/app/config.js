@@ -16,6 +16,11 @@ export const routes = [
     component: DashboardComponent
   },
   {
+    path: 'dashboard',
+    component: TimeAgoComponent,
+    outlet: 'time'
+  },
+  {
     path: 'time-ago',
     component: TimeAgoComponent
   },

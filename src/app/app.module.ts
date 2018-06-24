@@ -21,6 +21,7 @@ import {ElementComponent} from './element/element.component';
 import {FormComponent} from './form/form.component';
 import {createCustomElement} from '@angular/elements';
 import {FormsModule} from '@angular/forms';
+import { TraficLightComponent } from './trafic-light/trafic-light.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {FormsModule} from '@angular/forms';
     TimeAgoPipe,
     TimeAgoComponent,
     ElementComponent,
-    FormComponent
+    FormComponent,
+    TraficLightComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,7 @@ export class AppModule {
 
   constructor(private injector: Injector) {
     const formELement = createCustomElement(FormComponent, {injector: this.injector});
-    customElements.define('register-form', formELement);
+    // customElements.define('register-form', formELement);
   }
 
   ngDoBootstrap() {}
