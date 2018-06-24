@@ -1,8 +1,8 @@
-import {Route, Routes} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {HomeComponent} from "./home/home.component";
 import {TimeAgoComponent} from "./time-ago/time-ago.component";
 import {ElementComponent} from "./element/element.component";
+import {TrafficLightComponent} from "./trafic-light/trafic-light.component";
 
 
 //TODO why dont work with  - export const routes: Routes = [
@@ -27,6 +27,10 @@ export const routes = [
   {
     path: 'angular-element',
     component: ElementComponent
+  },
+  {
+    path: 'traffic-light',
+    component: TrafficLightComponent
   },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
