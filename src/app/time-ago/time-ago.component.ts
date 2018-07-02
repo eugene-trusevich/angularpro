@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-time-ago',
   templateUrl: './time-ago.component.html',
-  styleUrls: ['./time-ago.component.css']
+  styleUrls: ['./time-ago.component.scss']
 })
 export class TimeAgoComponent implements OnInit {
 

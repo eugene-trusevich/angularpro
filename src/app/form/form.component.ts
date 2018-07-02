@@ -3,7 +3,7 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from 
 @Component({
   selector: 'register-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css'],
+  styleUrls: ['./form.component.scss'],
   encapsulation: ViewEncapsulation.Native
 })
 export class FormComponent implements OnInit {

@@ -21,7 +21,8 @@ import {ElementComponent} from './element/element.component';
 import {FormComponent} from './form/form.component';
 import {createCustomElement} from '@angular/elements';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { TrafficLightComponent } from './trafic-light/trafic-light.component';
+import { TrafficLightComponent } from './common/component/trafic-light/trafic-light.component';
+import { TrafficComponent } from './traffic/traffic.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { TrafficLightComponent } from './trafic-light/trafic-light.component';
     TimeAgoComponent,
     ElementComponent,
     FormComponent,
-    TrafficLightComponent
+    TrafficLightComponent,
+    TrafficComponent
   ],
   imports: [
     BrowserModule,

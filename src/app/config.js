@@ -2,7 +2,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {HomeComponent} from "./home/home.component";
 import {TimeAgoComponent} from "./time-ago/time-ago.component";
 import {ElementComponent} from "./element/element.component";
-import {TrafficLightComponent} from "./trafic-light/trafic-light.component";
+import {TrafficComponent} from "./traffic/traffic.component";
 
 
 //TODO why dont work with  - export const routes: Routes = [
@@ -30,7 +30,7 @@ export const routes = [
   },
   {
     path: 'traffic-light',
-    component: TrafficLightComponent
+    component: TrafficComponent
   },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

@@ -1,0 +1,12 @@
+<div class="trafficlight">
+  <div class="protector"></div>
+  <div class="protector"></div>
+  <div class="protector"></div>
+
+  <label class="bulb"
+         *ngFor="let c of colors" [ngClass]="currentColor === c ? c : ''"
+  >
+    <input type="radio" name="trafficlight" value="c" (change)="radioChange(c)">
+    <div class="c"></div>
+  </label>
+</div>
