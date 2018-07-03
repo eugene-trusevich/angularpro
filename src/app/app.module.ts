@@ -21,9 +21,10 @@ import {ElementComponent} from './element/element.component';
 import {FormComponent} from './form/form.component';
 import {createCustomElement} from '@angular/elements';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { TrafficLightComponent } from './common/component/trafic-light/trafic-light.component';
+import { TrafficLightComponent } from './common/components/trafic-light/trafic-light.component';
 import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficValidatorDirective } from './common/directives/traffic-validator.directive';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { TrafficValidatorDirective } from './common/directives/traffic-validator
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   entryComponents: [
     Child1Component,
