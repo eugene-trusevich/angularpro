@@ -6,7 +6,7 @@
   <label class="bulb"
          *ngFor="let c of colors" [ngClass]="currentColor === c ? c : ''"
   >
-    <input type="radio" name="trafficlight" value="c" (change)="radioChange(c)">
+    <input type="radio" name="trafficLight" value="c" (change)="radioChange(c)">
     <div class="c"></div>
   </label>
 </div>

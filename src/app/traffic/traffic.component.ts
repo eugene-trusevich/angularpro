@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {createTrafficValidator} from '../common/directives/traffic-validator.directive';
 
 @Component({
   selector: 'app-traffic',
@@ -8,14 +9,25 @@ import {FormControl} from '@angular/forms';
 })
 export class TrafficComponent implements OnInit {
 
-  public trafficLight: FormControl;
+  public formModel: FormGroup;
+  private initialTrafficLight: string = 'red';
 
-
-  constructor() {
+  constructor(
+    private _fb: FormBuilder
+  ) {
   }
 
   ngOnInit() {
-    // this.trafficLight.valueChanges.subscribe(value => console.log(value))
+    this.formModel = this._fb.group({
+      trafficLight: [this.initialTrafficLight, [createTrafficValidator('red')]]
+    });
+
+    // this.formModel.valueChanges.subscribe(value => console.log(value))
   }
+
+  public onSubmit(value: any): void {
+    console.log(value);
+  }
+
 
 }

@@ -1,1 +1,9 @@
-<app-trafic-light [initialColor]="'red'"></app-trafic-light>
+<form [formGroup]="formModel" (ngSubmit)="onSubmit(formModel.value)">
+  <app-trafic-light [initialColor]="initialTrafficLight" formControlName="trafficLight"></app-trafic-light>
+  <button type="submit" [disabled]="!formModel.valid">Submit</button>
+
+  <div>{{formModel.valueChanges | async | json}}</div>
+  <p *ngIf="!formModel.valid">Form is invalid!</p>
+  <div *ngIf="formModel.controls.trafficLight.errors">{{formModel.controls.trafficLight.errors | json}}</div>
+
+</form>

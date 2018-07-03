@@ -23,6 +23,7 @@ import {createCustomElement} from '@angular/elements';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TrafficLightComponent } from './common/component/trafic-light/trafic-light.component';
 import { TrafficComponent } from './traffic/traffic.component';
+import { TrafficValidatorDirective } from './common/directives/traffic-validator.directive';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { TrafficComponent } from './traffic/traffic.component';
     ElementComponent,
     FormComponent,
     TrafficLightComponent,
-    TrafficComponent
+    TrafficComponent,
+    TrafficValidatorDirective
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import {Component, forwardRef, Input, OnInit} from '@angular/core';
 import {
-  ControlValueAccessor, FormArray, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR,
+  ControlValueAccessor, FormArray, FormBuilder, FormControl, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR,
   Validator, Validators
 } from '@angular/forms';
 
@@ -19,15 +19,13 @@ type TLColor = 'green' | 'yellow' | 'red';
     }
   ]
 })
-export class TrafficLightComponent implements ControlValueAccessor {
+export class TrafficLightComponent implements ControlValueAccessor, OnInit {
 
   @Input() initialColor: TLColor;
 
   private currentColor: TLColor;
-  private _onChangedCallback = (color: TLColor) => {
-  };
-  private _onTouchedCallback = (color: TLColor) => {
-  };
+  private _onChangedCallback = (color: TLColor) => {};
+  private _onTouchedCallback = (color: TLColor) => {};
 
   public colors: Array<TLColor> = ['red', 'yellow', 'green']
 
