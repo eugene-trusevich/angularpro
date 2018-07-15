@@ -10,7 +10,7 @@ import {createTrafficValidator} from '../common/directives/traffic-validator.dir
 export class TrafficComponent implements OnInit {
 
   public formModel: FormGroup;
-  private initialTrafficLight: string = 'red';
+  public initialTrafficLight: string = 'red';
 
   constructor(
     private _fb: FormBuilder
