@@ -30,6 +30,8 @@ import {StoreModule} from '@ngrx/store';
 import { CounterStoreComponent } from './counter-store/counter-store.component';
 import {counterReducer} from './counter-store/counter-reducer';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {HttpClientModule} from '@angular/common/http';
+import {TrafficLightComponent} from './common/components/trafic-light/trafic-light.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
     TimeAgoComponent,
     ElementComponent,
     FormComponent,
-    // TrafficLightComponent,
+    TrafficLightComponent,
     TrafficComponent,
     TrafficValidatorDirective,
     CounterComponent,
@@ -60,6 +62,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     StoreModule.forRoot({
       counter: counterReducer
     },{

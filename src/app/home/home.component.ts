@@ -18,6 +18,7 @@ import {
   catchError, retry, retryWhen, timeout,
   multicast, publish, share, shareReplay
 } from 'rxjs/internal/operators';
+import {HttpClient} from '@angular/common/http';
 
 
 @Component({
@@ -41,10 +42,20 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private componentDestroyed: Subject<string> = new Subject();
 
-  constructor() {
+  constructor(
+    private http: HttpClient
+  ) {
   }
 
   ngOnInit() {
+    // this.http.get('https://api.github.com/users/octocat/followers').subscribe(res =>{
+    // this.http.get('https://localhost:4200/user/test').subscribe(res =>{
+    this.http.get('https://3f9fbfa0.ngrok.io/user/test').subscribe(res =>{
+      console.log(res);
+    })
+
+
+
     const elem = this.myInput.nativeElement;
     // const o = fromEvent(elem, 'input');
     // o.pipe(
@@ -60,9 +71,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     // })
 
     // const o1 = of(1,2, asyncScheduler);
-    const o1 = of(1,2). pipe(observeOn(asyncScheduler));
-    const o2 = of(10);
-    const o = combineLatest(o1, o2)
+    // const o1 = of(1,2). pipe(observeOn(asyncScheduler));
+    // const o2 = of(10);
+    // const o = combineLatest(o1, o2)
     // const o = Observable.create((observer: Observer<string>) => {
     //   observer.next('hello')
     //   observer.next('hello')
