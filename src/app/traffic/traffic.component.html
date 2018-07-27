@@ -1,5 +1,5 @@
 <form [formGroup]="formModel" (ngSubmit)="onSubmit(formModel.value)">
-  <app-trafic-light [initialColor]="initialTrafficLight" formControlName="trafficLight"></app-trafic-light>
+  <!--<app-trafic-light [initialColor]="initialTrafficLight" formControlName="trafficLight"></app-trafic-light>-->
   <button type="submit" [disabled]="!formModel.valid">Submit</button>
 
   <div>{{formModel.valueChanges | async | json}}</div>
