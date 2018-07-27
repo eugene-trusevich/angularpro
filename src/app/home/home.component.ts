@@ -51,7 +51,18 @@ export class HomeComponent implements OnInit, OnDestroy {
     //   debounceTime(500))
     //   .subscribe((event: KeyboardEvent) => console.log((event.target as HTMLInputElement).value));
 
+    //
+    // const o = Observable.create((observer: Observer<string>) => {
+    //   observer.next('hello')
+    //   observer.next('hello')
+    //   observer.next('hello')
+    //   observer.complete()
+    // })
 
+    // const o1 = of(1,2, asyncScheduler);
+    const o1 = of(1,2). pipe(observeOn(asyncScheduler));
+    const o2 = of(10);
+    const o = combineLatest(o1, o2)
     // const o = Observable.create((observer: Observer<string>) => {
     //   observer.next('hello')
     //   observer.next('hello')

@@ -25,6 +25,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficValidatorDirective } from './common/directives/traffic-validator.directive';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CounterComponent } from './counter/counter.component';
+import {StoreModule} from '@ngrx/store';
+import { CounterStoreComponent } from './counter-store/counter-store.component';
+import {counterReducer} from './counter-store/counter-reducer';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -45,14 +50,24 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormComponent,
     // TrafficLightComponent,
     TrafficComponent,
-    TrafficValidatorDirective
+    TrafficValidatorDirective,
+    CounterComponent,
+    CounterStoreComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StoreModule.forRoot({
+      counter: counterReducer
+    },{
+    initialState:{
+      counter: 0
+    }
+    }),
+    StoreDevtoolsModule.instrument()
   ],
   entryComponents: [
     Child1Component,
