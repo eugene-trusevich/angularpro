@@ -32,6 +32,8 @@ import {counterReducer} from './counter-store/counter-reducer';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {HttpClientModule} from '@angular/common/http';
 import {TrafficLightComponent} from './common/components/trafic-light/trafic-light.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,8 @@ import {TrafficLightComponent} from './common/components/trafic-light/trafic-lig
       counter: 0
     }
     }),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [
     Child1Component,

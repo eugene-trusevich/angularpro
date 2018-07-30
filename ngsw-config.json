@@ -1,0 +1,39 @@
+{
+  "index": "/index.html",
+  "assetGroups": [{
+    "name": "app",
+    "installMode": "prefetch",
+    "resources": {
+      "files": [
+        "/favicon.ico",
+        "/index.html",
+        "/*.css",
+        "/*.js"
+      ]
+    }
+  }, {
+    "name": "assets",
+    "installMode": "lazy",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/assets/**"
+      ]
+    }
+  }],
+  "dataGroups":[
+    {
+      "name": "user",
+      "urls": [
+        "http://localhost:8080/user/**",
+        "https://3f9fbfa0.ngrok.io/user/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 2,
+        "maxAge": "30s",
+        "timeout": "2s",
+        "strategy": "freshness"
+      }
+    }
+  ]
+}
