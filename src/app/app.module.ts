@@ -1,4 +1,4 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, BrowserTransferStateModule} from '@angular/platform-browser';
 import {Injector, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
@@ -30,6 +30,9 @@ import {StoreModule} from '@ngrx/store';
 import { CounterStoreComponent } from './counter-store/counter-store.component';
 import {counterReducer} from './counter-store/counter-reducer';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {HttpClientModule} from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
     CounterStoreComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
@@ -67,7 +70,10 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
       counter: 0
     }
     }),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    HttpClientModule,
+    BrowserTransferStateModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [
     Child1Component,
@@ -82,10 +88,12 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 })
 export class AppModule {
 
-  constructor(private injector: Injector) {
-    const formELement = createCustomElement(FormComponent, {injector: this.injector});
+  constructor(
+    // private injector: Injector
+  ) {
+    // const formELement = createCustomElement(FormComponent, {injector: this.injector});
     // customElements.define('register-form', formELement);
   }
 
-  ngDoBootstrap() {}
+  // ngDoBootstrap() {}
 }
