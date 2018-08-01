@@ -21,7 +21,7 @@ import {ElementComponent} from './element/element.component';
 import {FormComponent} from './form/form.component';
 import {createCustomElement} from '@angular/elements';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-// import { TrafficLightComponent } from './common/components/trafic-light/trafic-light.component';
+import { TrafficLightComponent } from './common/components/trafic-light/trafic-light.component';
 import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficValidatorDirective } from './common/directives/traffic-validator.directive';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -48,7 +48,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
     TimeAgoComponent,
     ElementComponent,
     FormComponent,
-    // TrafficLightComponent,
+    TrafficLightComponent,
     TrafficComponent,
     TrafficValidatorDirective,
     CounterComponent,
