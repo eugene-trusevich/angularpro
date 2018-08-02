@@ -25,8 +25,7 @@
     {
       "name": "user",
       "urls": [
-        "http://localhost:8080/user/**",
-        "https://3f9fbfa0.ngrok.io/user/**"
+        "http://localhost:8080/user/**"
       ],
       "cacheConfig": {
         "maxSize": 2,
