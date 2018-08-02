@@ -2,7 +2,7 @@ import {BrowserModule, BrowserTransferStateModule} from '@angular/platform-brows
 import {Injector, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {AclDirective} from './common/directives/acl.directive';
+
 import {UserService} from './common/services/user.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {routes} from './config';
@@ -24,9 +24,7 @@ import { TrafficLightComponent } from './common/components/trafic-light/trafic-l
 import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficValidatorDirective } from './common/directives/traffic-validator.directive';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { CounterComponent } from './counter/counter.component';
 import {StoreModule} from '@ngrx/store';
-import { CounterStoreComponent } from './counter-store/counter-store.component';
 import {counterReducer} from './counter-store/counter-reducer';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {HttpClientModule} from '@angular/common/http';
@@ -36,7 +34,6 @@ import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
-    AclDirective,
     DashboardComponent,
     HeaderComponent,
     Child1Component,
@@ -51,9 +48,7 @@ import { environment } from '../environments/environment';
     FormComponent,
     TrafficLightComponent,
     TrafficComponent,
-    TrafficValidatorDirective,
-    CounterComponent,
-    CounterStoreComponent
+    TrafficValidatorDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
