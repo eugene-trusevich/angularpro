@@ -1,4 +1,4 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, BrowserTransferStateModule} from '@angular/platform-browser';
 import {Injector, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
@@ -21,7 +21,7 @@ import {ElementComponent} from './element/element.component';
 import {FormComponent} from './form/form.component';
 import {createCustomElement} from '@angular/elements';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-// import { TrafficLightComponent } from './common/components/trafic-light/trafic-light.component';
+import { TrafficLightComponent } from './common/components/trafic-light/trafic-light.component';
 import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficValidatorDirective } from './common/directives/traffic-validator.directive';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -31,7 +31,6 @@ import { CounterStoreComponent } from './counter-store/counter-store.component';
 import {counterReducer} from './counter-store/counter-reducer';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {HttpClientModule} from '@angular/common/http';
-import {TrafficLightComponent} from './common/components/trafic-light/trafic-light.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
@@ -59,12 +58,11 @@ import { environment } from '../environments/environment';
     CounterStoreComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    HttpClientModule,
     StoreModule.forRoot({
       counter: counterReducer
     },{
@@ -73,6 +71,8 @@ import { environment } from '../environments/environment';
     }
     }),
     StoreDevtoolsModule.instrument(),
+    HttpClientModule,
+    BrowserTransferStateModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [
@@ -88,10 +88,12 @@ import { environment } from '../environments/environment';
 })
 export class AppModule {
 
-  constructor(private injector: Injector) {
-    const formELement = createCustomElement(FormComponent, {injector: this.injector});
+  constructor(
+    // private injector: Injector
+  ) {
+    // const formELement = createCustomElement(FormComponent, {injector: this.injector});
     // customElements.define('register-form', formELement);
   }
 
-  ngDoBootstrap() {}
+  // ngDoBootstrap() {}
 }
