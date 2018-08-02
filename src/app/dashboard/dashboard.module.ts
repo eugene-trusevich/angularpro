@@ -22,7 +22,8 @@ const routes: Routes = [
   //   path: '',
   //   component: TimeAgoComponent,
   //   outlet: 'time',
-  // }
+  // },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 
