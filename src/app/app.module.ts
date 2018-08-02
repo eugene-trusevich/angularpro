@@ -21,6 +21,9 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {HttpClientModule} from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+// import {TimeAgoPipe} from './common/pipes/time-ago.pipe';
+// import {TimeAgoComponent} from './time-ago/time-ago.component';
+// import {TimeAgoModule} from './time-ago/time-ago.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { environment } from '../environments/environment';
     FormComponent,
     TrafficLightComponent,
     TrafficComponent,
-    TrafficValidatorDirective
+    TrafficValidatorDirective,
+    // TimeAgoPipe,
+    // TimeAgoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
