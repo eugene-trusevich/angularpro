@@ -7,7 +7,6 @@ import {UserService} from './common/services/user.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {routes} from './config';
 import {RouterModule} from '@angular/router';
-import {HomeComponent} from './home/home.component';
 import {HeaderComponent} from './header/header.component';
 import {Child1Component} from './dashboard/child1/child1.component';
 import {Child2Component} from './dashboard/child2/child2.component';
@@ -39,7 +38,6 @@ import { environment } from '../environments/environment';
     AppComponent,
     AclDirective,
     DashboardComponent,
-    HomeComponent,
     HeaderComponent,
     Child1Component,
     Child2Component,

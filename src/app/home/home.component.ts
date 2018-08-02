@@ -3,13 +3,9 @@ import {animations} from '../common/animations/animation';
 import {fromEvent, Observable, Observer, Subject, Subscription} from 'rxjs';
 import {debounceTime} from 'rxjs/internal/operators';
 import {FormControl} from '@angular/forms';
-import {isPlatformBrowser} from '@angular/common';
+import {isPlatformBrowser, isPlatformServer} from '@angular/common';
 import {TransferState, makeStateKey} from '@angular/platform-browser';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-
-
-const TESTDATA_KEY = makeStateKey('testData');
-
 
 @Component({
   selector: 'app-home',
@@ -37,13 +33,13 @@ export class HomeComponent implements OnInit {
   constructor(
     private http: HttpClient,
     @Inject(PLATFORM_ID) private platformId: Object,
-    private state: TransferState
+    private transferState: TransferState,
   ) {
   }
 
   ngOnInit() {
 
-    this.data = this.state.get(TESTDATA_KEY, null as any);
+    const TESTDATA_KEY = makeStateKey('testData');
 
     let httpOptions = {
       headers: new HttpHeaders({
@@ -53,13 +49,34 @@ export class HomeComponent implements OnInit {
       })
     };
 
-    if(!this.data){
+
+    if (isPlatformServer(this.platformId)) {
+
+      console.log(1);
 
       this.http.get('http://localhost:8080/user/testdata2', httpOptions).subscribe(response => {
         console.log(response);
         this.data = response;
-        this.state.set(TESTDATA_KEY, response as any);
-      })
+        this.transferState.set(TESTDATA_KEY, this.data);
+      });
+    } else{
+
+      console.log(2);
+      if (this.transferState.hasKey(TESTDATA_KEY)) {
+        console.log(3);
+        this.data = this.transferState.get(TESTDATA_KEY, null);
+        this.transferState.remove(TESTDATA_KEY);
+
+      } else{
+        console.log(4);
+
+        this.http.get('http://localhost:8080/user/testdata2', httpOptions).subscribe(response => {
+          console.log(response);
+          this.data = response;
+        });
+
+      }
+
     }
 
   }

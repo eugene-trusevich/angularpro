@@ -9,28 +9,28 @@ import {TrafficComponent} from "./traffic/traffic.component";
 export const routes = [
   {
     path: '',
-    component: HomeComponent
+    loadChildren: 'src/app/home/home.module#HomeModule'
   },
-  {
-    path: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: 'dashboard',
-    component: TimeAgoComponent,
-    outlet: 'time'
-  },
-  {
-    path: 'time-ago',
-    component: TimeAgoComponent
-  },
-  {
-    path: 'angular-element',
-    component: ElementComponent
-  },
-  {
-    path: 'traffic-light',
-    component: TrafficComponent
-  },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  // {
+  //   path: 'dashboard',
+  //   component: DashboardComponent
+  // },
+  // {
+  //   path: 'dashboard',
+  //   component: TimeAgoComponent,
+  //   outlet: 'time'
+  // },
+  // {
+  //   path: 'time-ago',
+  //   component: TimeAgoComponent
+  // },
+  // {
+  //   path: 'angular-element',
+  //   component: ElementComponent
+  // },
+  // {
+  //   path: 'traffic-light',
+  //   component: TrafficComponent
+  // },
+  // { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
