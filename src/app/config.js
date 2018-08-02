@@ -13,16 +13,11 @@ export const routes = [
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: 'dashboard',
-    component: TimeAgoComponent,
-    outlet: 'time'
+    loadChildren: 'src/app/dashboard/dashboard.module#DashboardModule'
   },
   {
     path: 'time-ago',
-    component: TimeAgoComponent
+    loadChildren: 'src/app/time-ago/time-ago.module#TimeAgoModule',
   },
   {
     path: 'angular-element',
