@@ -1,5 +1,12 @@
+<div>
+  data - {{data | json}}
+</div>
+
 <button (click)="toggleAnimation()">Change animation</button>
 <div>{{animationState}}</div>
+
+
+
 <div>
 
   <ul [@stateAnimation]="{value: animationState}">
@@ -25,10 +32,6 @@
 </div>
 
 <input #myInput type="text">
-
-<div>
-  {{data | json}}
-</div>
 <div>
   <hr>
   <app-counter></app-counter>
@@ -36,7 +39,5 @@
 
 <div>
   <hr>
-  <app-counter-store></app-counter-store>
-  <app-counter-store></app-counter-store>
   <app-counter-store></app-counter-store>
 </div>
