@@ -9,11 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:elements": "ng build --prod --output-hashing none && node build-script.js",
-
     "build:ssr": "npm run build:client-and-server-bundles",
     "serve:ssr": "ts-node server.ts",
     "build:client-and-server-bundles": "ng build --prod && ng run angularpro-home1:server",
-
     "start:ssr": "npm run build:ssr && npm run serve:ssr"
   },
   "private": true,

@@ -18,7 +18,7 @@ const TESTDATA_KEY = makeStateKey('testData');
   animations: [animations]
 })
 
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
 
   @ViewChild('myInput') myInput: ElementRef;
 
@@ -42,22 +42,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    const elem = this.myInput.nativeElement;
-    // const o = fromEvent(elem, 'input');
-    // o.pipe(
-    //   debounceTime(500))
-    //   .subscribe((event: KeyboardEvent) => console.log((event.target as HTMLInputElement).value));
-
-    //
-    // const o = Observable.create((observer: Observer<string>) => {
-    //   observer.next('hello')
-    //   observer.next('hello')
-    //   observer.next('hello')
-    //   observer.complete()
-    // })
-    //
-    // o.subscribe(console.log)
-
 
     this.data = this.state.get(TESTDATA_KEY, null as any);
 
@@ -91,14 +75,5 @@ export class HomeComponent implements OnInit, OnDestroy {
   removeItem(index): void {
     this.items.splice(index, 1);
   }
-
-  ngOnDestroy(){
-    console.log('destroy home component');
-    // this.valueChangesSubscription.unsubscribe();
-    // this.componentDestroyed.next();//TODO without 'next' not work
-    // this.componentDestroyed.unsubscribe();
-
-  }
-
 
 }
