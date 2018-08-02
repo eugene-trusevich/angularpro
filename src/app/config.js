@@ -1,6 +1,3 @@
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {HomeComponent} from "./home/home.component";
-import {TimeAgoComponent} from "./time-ago/time-ago.component";
 import {ElementComponent} from "./element/element.component";
 import {TrafficComponent} from "./traffic/traffic.component";
 
