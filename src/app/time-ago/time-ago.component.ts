@@ -26,7 +26,7 @@ export class TimeAgoComponent implements OnInit {
 
   goDashboard(): void {
     // this._router.navigate(['dashboard']);
-    this._router.navigate([{ outlets: { primary: 'dashboard', time: ['dashboard'] } }]);
+    this._router.navigate([{ outlets: { primary: 'dashboard', time: ['compose'] } }]);
   }
 
 }

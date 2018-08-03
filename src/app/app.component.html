@@ -1,4 +1,12 @@
-<app-header></app-header>
+<app-header></app-header
+
+<div>
+  <a [routerLink]="[{ outlets: { time: ['compose'] } }]">Time ago add</a>
+</div>
+<div>
+  <a [routerLink]="[{ outlets: { time: null } }]">Time ago remove</a>
+</div>
+
 <router-outlet></router-outlet>
 
 <router-outlet name="time"></router-outlet>

@@ -1,10 +1,11 @@
 <div class="menu">
   <a class="nav-footer-item" [routerLink]="['']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Home (ACL)</a>
 
-  <a class="nav-footer-item" [routerLink]="[{outlets:{primary: 'dashboard', time: 'dashboard'}}]" [routerLinkActive]="['active']">Dashboard with time outlet</a>
+  <a class="nav-footer-item" [routerLink]="[{outlets:{primary: 'dashboard', time: 'compose'}}]" [routerLinkActive]="['active']">Dashboard with time outlet</a>
   <a class="nav-footer-item" [routerLink]="[{outlets:{primary: 'dashboard', time: null}}]" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Dashboard no time (active class)</a>
 
-  <a class="nav-footer-item" [routerLink]="['/time-ago']" [routerLinkActive]="['active']">Time ago</a>
+  <!--<a class="nav-footer-item" [routerLink]="['/time-ago']" [routerLinkActive]="['active']">Time ago</a>-->
+  <a class="nav-footer-item" [routerLink]="[{outlets:{primary: 'time-ago', time: null}}]" [routerLinkActive]="['active']">Time ago</a>
   <a class="nav-footer-item" [routerLink]="['/angular-element']" [routerLinkActive]="['active']">Angular element (form)</a>
 
   <a class="nav-footer-item" [routerLink]="['/traffic-light']" [routerLinkActive]="['active']">Traffic Light</a>

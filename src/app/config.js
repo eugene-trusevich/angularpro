@@ -11,16 +11,18 @@ export const routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: 'src/app/dashboard/dashboard.module#DashboardModule'
+    loadChildren: 'src/app/dashboard/dashboard.module#DashboardModule',
+    pathMatch: 'full'
   },
   {
-    path: 'dashboard',
+    path: 'compose',
     outlet: 'time',
     component: ProxyRouteComponent,
+    pathMatch: 'full',
     children: [
       {
         path: '',
-        loadChildren: 'src/app/time-ago/time-ago.module#TimeAgoModule'
+        loadChildren: 'src/app/time-ago/time-ago.module#TimeAgoModule',
       }
     ],
   },
