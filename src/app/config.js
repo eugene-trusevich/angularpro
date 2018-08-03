@@ -1,5 +1,3 @@
-import {ElementComponent} from "./element/element.component";
-import {TrafficComponent} from "./traffic/traffic.component";
 import {ProxyRouteComponent} from "./common/components/proxy-route/proxy-route.component";
 
 
@@ -7,11 +5,11 @@ import {ProxyRouteComponent} from "./common/components/proxy-route/proxy-route.c
 export const routes = [
   {
     path: '',
-    loadChildren: 'src/app/home/home.module#HomeModule'
+    loadChildren: './home/home.module#HomeModule'
   },
   {
     path: 'dashboard',
-    loadChildren: 'src/app/dashboard/dashboard.module#DashboardModule',
+    loadChildren: './dashboard/dashboard.module#DashboardModule',
     pathMatch: 'full'
   },
   {
@@ -22,21 +20,21 @@ export const routes = [
     children: [
       {
         path: '',
-        loadChildren: 'src/app/time-ago/time-ago.module#TimeAgoModule',
+        loadChildren: './time-ago/time-ago.module#TimeAgoModule',
       }
     ],
   },
   {
     path: 'time-ago',
-    loadChildren: 'src/app/time-ago/time-ago.module#TimeAgoModule',
+    loadChildren: './time-ago/time-ago.module#TimeAgoModule',
   },
   {
     path: 'angular-element',
-    loadChildren: 'src/app/element/element.module#ElementModule',
+    loadChildren: './element/element.module#ElementModule',
   },
   {
     path: 'traffic-light',
-    loadChildren: 'src/app/traffic/traffic.module#TrafficModule',
+    loadChildren: './traffic/traffic.module#TrafficModule',
   },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
