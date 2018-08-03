@@ -32,11 +32,11 @@ export const routes = [
   },
   {
     path: 'angular-element',
-    component: ElementComponent
+    loadChildren: 'src/app/element/element.module#ElementModule',
   },
   {
     path: 'traffic-light',
-    component: TrafficComponent
+    loadChildren: 'src/app/traffic/traffic.module#TrafficModule',
   },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
