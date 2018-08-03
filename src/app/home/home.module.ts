@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {HomeComponent} from './home.component';
-import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import {CounterComponent} from '../counter/counter.component';
 import {CounterStoreComponent} from '../counter-store/counter-store.component';
@@ -19,7 +18,6 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule,
     RouterModule.forChild(routes)
 
   ],
